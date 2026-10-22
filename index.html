@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Xis To Go</title>
+    <style>
+      :root { color-scheme: dark; }
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        background: #100b0b;
+        color: #fff;
+        font: 18px system-ui, sans-serif;
+        text-align: center;
+      }
+      a { color: #74e07d; }
+    </style>
+  </head>
+  <body>
+    <p>Redirecionando para o Xis To Go…<br><a id="fallback" href="https://www.instagram.com/xistogo">Continuar</a></p>
+    <script>
+      fetch(`destination.txt?v=${Date.now()}`, { cache: "no-store" })
+        .then((response) => {
+          if (!response.ok) throw new Error("Destino indisponível");
+          return response.text();
+        })
+        .then((destination) => {
+          const url = destination.trim();
+          if (!/^https:\/\//i.test(url)) throw new Error("Destino inválido");
+          document.querySelector("#fallback").href = url;
+          window.location.replace(url);
+        })
+        .catch(() => window.location.replace("https://www.instagram.com/xistogo"));
+    </script>
+  </body>
+</html>
