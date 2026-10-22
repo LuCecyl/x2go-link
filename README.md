@@ -8,4 +8,4 @@ Endereço permanente codificado no QR:
 
 Edite somente o arquivo `destination.txt`, deixando nele uma URL completa iniciada por `https://`, e publique a alteração na branch `main`.
 
-Destino atual: `https://www.instagram.com/gabrielcbarbosa`
+Destino atual: `https://www.instagram.com/xistogo`
